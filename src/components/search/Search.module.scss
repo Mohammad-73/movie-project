@@ -1,0 +1,27 @@
+.root {
+  padding: 50px;
+  :global {
+    .ant-select {
+      width: 100%;
+    }
+    .ant-input {
+      background: #f3523f;
+      color: white;
+      padding: 12px 10px;
+      border: 1px solid #f3523f;
+    }
+    .ant-input-search-button,
+    .ant-input-group-addon {
+      background-color: #f3523f;
+      color: white;
+      padding: 12px 10px;
+      border: none;
+    }
+    .anticon {
+      color: white;
+    }
+    .ant-input-wrapper input::placeholder {
+      color: white;
+    }
+  }
+}
