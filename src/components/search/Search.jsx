@@ -3,6 +3,8 @@ import { Input, AutoComplete, Rate, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import useDebounce from "../../hooks/useDebounce";
 import classes from "./Search.module.scss";
+import { useHistory } from "react-router-dom";
+import slugify from "../../helper/slugify";
 const renderTitle = (title) => (
   <span>
     {title}
@@ -35,9 +37,25 @@ const renderItem = (title, id, label) => ({
 });
 
 export default function Search() {
+  const history = useHistory();
   const [query, setQuery] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [searchedItem, setSearchedItem] = useState([]);
   const debounceQuery = useDebounce(query, 500);
+
+  function handleLoadMovie(id) {
+    const data = searchedItem.find((d) => d.id == id);
+    setInputValue("");
+
+    switch (data.media_type) {
+      case "movie":
+        return history.push(`/movies/${data.id}/${slugify(data.title)}`);
+      case "tv":
+        return history.push(`/tv-shows/${data.id}/${slugify(data.name)}`);
+      case "person":
+        return history.push(`/celebrities/${data.id}/${slugify(data.name)}`);
+    }
+  }
 
   useEffect(() => {
     if (debounceQuery) {
@@ -115,6 +133,9 @@ export default function Search() {
         dropdownMatchSelectWidth={500}
         options={makeOptions()}
         onSearch={(e) => setQuery(e)}
+        onSelect={handleLoadMovie}
+        onChange={setInputValue}
+        value={inputValue}
       >
         <Input.Search size="large" placeholder="search here" />
       </AutoComplete>

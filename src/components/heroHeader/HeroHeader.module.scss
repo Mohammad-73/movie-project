@@ -1,0 +1,8 @@
+@import "../../assets/css/variable.scss";
+.root {
+  background-image: url(../../assets/images/header-bg.jpg);
+  background-color: $manatee;
+  padding-bottom: 48px;
+  margin-bottom: 36px;
+  background-size: cover;
+}

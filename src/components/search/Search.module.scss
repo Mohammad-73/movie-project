@@ -1,27 +1,27 @@
+@import "../../assets/css/variable.scss";
 .root {
-  padding: 50px;
   :global {
     .ant-select {
       width: 100%;
     }
     .ant-input {
-      background: #f3523f;
-      color: white;
+      background: $amaranth-red;
+      color: $alice-blue;
       padding: 12px 10px;
-      border: 1px solid #f3523f;
+      border: 1px solid $amaranth-red;
     }
     .ant-input-search-button,
     .ant-input-group-addon {
-      background-color: #f3523f;
+      background-color: $amaranth-red;
       color: white;
       padding: 12px 10px;
       border: none;
     }
     .anticon {
-      color: white;
+      color: $alice-blue;
     }
     .ant-input-wrapper input::placeholder {
-      color: white;
+      color: $alice-blue;
     }
   }
 }

@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import "antd/dist/antd.dark.css";
+// @import "antd/dist/antd.compact.css";
+@import "./variable.scss";
+/* Global styles */
+body,
+.ant-layout {
+  background-color: $alice-blue !important;
+}
+.zenTokyoZoo-title {
+  font-family: "Zen Tokyo Zoo , cursive";
+  font-size: 24px;
+}
+.montserrat-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
+/* Movies page styles */
+/* Movie page styles */
+.movie-bg {
+  width: 100%;
+  margin: 0;
+  padding: 50px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.genres-text {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 5px;
+  background-color: #75391d;
+  color: whitesmoke;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+.overview-text {
+  color: black;
+  font-size: 20px;
+}
+/* NowPlaying page styles */
+/* Popular page styles */
+/* TopRated page styles */
+/* Upcoming page styles */ ;
