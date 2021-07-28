@@ -2,12 +2,15 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useMovieDB from "../hooks/useMovieDB";
 import Container from "../components/layout/Container";
+import Seo from "../components/seo/Seo";
+
 export default function Movie() {
   const { id } = useParams();
   const { data = {}, loading } = useMovieDB(`movie/${id}`);
 
   return (
     <Container>
+      <Seo title={data.title} />
       <p>{data.title}</p>
     </Container>
   );

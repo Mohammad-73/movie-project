@@ -2,6 +2,7 @@ import React from "react";
 import useMovieDB from "../hooks/useMovieDB";
 // import antd
 import { Pagination, Row, Col, Card, Spin } from "antd";
+import Seo from "../components/seo/Seo";
 const { Meta } = Card;
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
 
   return (
     <>
+      <Seo title="Now Playing" />
       <Spin spinning={loading}>
         <Row gutter={[24, 24]}>
           {results?.map((movie) => (

@@ -41,7 +41,7 @@ export default function Search() {
   const [query, setQuery] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [searchedItem, setSearchedItem] = useState([]);
-  const debounceQuery = useDebounce(query, 500);
+  const debounceQuery = useDebounce(query, 300);
 
   function handleLoadMovie(id) {
     const data = searchedItem.find((d) => d.id == id);

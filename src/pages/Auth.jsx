@@ -3,6 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import Container from "../components/layout/Container";
 import { UserContext } from "../context/UserContext";
 import authService from "../service/authService";
+import Seo from "../components/seo/Seo";
 
 export default function Auth() {
   const { setSessionId } = useContext(UserContext);
@@ -38,6 +39,7 @@ export default function Auth() {
 
   return (
     <Container>
+      <Seo title="auth" />
       <div>
         <h1>"hi :)"</h1>
       </div>

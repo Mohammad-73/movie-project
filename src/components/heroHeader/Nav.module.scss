@@ -1,0 +1,27 @@
+@import "../../assets/css/variable.scss";
+.root {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    padding-right: 30px;
+
+    a {
+      color: $alice-blue;
+      font-weight: 400;
+      font-size: 16px;
+      border: 1px solid $alice-blue;
+      padding: 5px 8px;
+      border-radius: 3px;
+      letter-spacing: 1px;
+    }
+  }
+  .active {
+    font-weight: 500;
+    color: $amaranth-red;
+    border: 1px solid $amaranth-red;
+    letter-spacing: 1px;
+  }
+}

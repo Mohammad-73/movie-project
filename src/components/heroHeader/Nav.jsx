@@ -1,14 +1,29 @@
-import { Avatar, Button, Col, Row } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { Avatar, Button, Col, Row, Menu, Dropdown } from "antd";
+import { UserOutlined, DownOutlined } from "@ant-design/icons";
 import React, { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import authService from "../../service/authService";
 import Container from "../layout/Container";
 import image from "../../helper/image";
 import { NavLink } from "react-router-dom";
+import classes from "./Nav.module.scss";
 
 export default function Nav() {
-  const { user } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
+
+  const menu = () => (
+    <Menu>
+      <Menu.Item>
+        <span>{user.name}</span>
+      </Menu.Item>
+      <Menu.Divider />
+
+      <Menu.Item onClick={logout} danger>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
+
   function handleLogin() {
     authService.createRequestToken().then((data) => {
       window.location = `https://www.themoviedb.org/authenticate/${data.request_token}?redirect_to=http://localhost:3000/auth`;
@@ -16,32 +31,48 @@ export default function Nav() {
   }
 
   return (
-    <nav>
+    <nav className={classes.root}>
       <Container>
-        <Row>
+        <Row justify="space-between">
           <Col>
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink exact activeClassName={classes.active} to="/">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/movies">Movies</NavLink>
+                <NavLink activeClassName={classes.active} to="/movies">
+                  Movies
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/tv-shows">Tv Shows</NavLink>
+                <NavLink activeClassName={classes.active} to="/tv-shows">
+                  Tv Shows
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/celebrities">Celebrities</NavLink>
+                <NavLink activeClassName={classes.active} to="/celebrities">
+                  Celebrities
+                </NavLink>
               </li>
             </ul>
           </Col>
           <Col>
             {user ? (
-              <Avatar
-                {...(user?.avatar?.tmdb?.avatar_path
-                  ? { src: image(user?.avatar?.tmdb?.avatar_path, "w185") }
-                  : { icon: <UserOutlined /> })}
-              />
+              <Dropdown
+                overlay={menu()}
+                placement="bottomCenter"
+                trigger={["click"]}
+              >
+                <Avatar
+                  style={{ cursor: "pointer" }}
+                  size="large"
+                  {...(user?.avatar?.tmdb?.avatar_path
+                    ? { src: image(user?.avatar?.tmdb?.avatar_path, "w185") }
+                    : { icon: <UserOutlined /> })}
+                />
+              </Dropdown>
             ) : (
               <Button onClick={handleLogin}>Login</Button>
             )}
