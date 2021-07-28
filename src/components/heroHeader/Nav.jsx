@@ -26,7 +26,9 @@ export default function Nav() {
 
   function handleLogin() {
     authService.createRequestToken().then((data) => {
-      window.location = `https://www.themoviedb.org/authenticate/${data.request_token}?redirect_to=http://localhost:3000/auth`;
+      window.location = `https://www.themoviedb.org/authenticate/${
+        data.request_token
+      }?redirect_to=${import.meta.env.VITE_REDIRECT_URL}`;
     });
   }
 
