@@ -14,14 +14,19 @@
       font-size: 16px;
       border: 1px solid $alice-blue;
       padding: 5px 8px;
-      border-radius: 3px;
+      border-radius: 5px;
       letter-spacing: 1px;
+    }
+    :hover {
+      background-color: $imperial-red;
+      color: $alice-blue;
+      border: 1px solid $imperial-red;
     }
   }
   .active {
     font-weight: 500;
-    color: $amaranth-red;
-    border: 1px solid $amaranth-red;
+    color: $imperial-red;
+    border: 1px solid $imperial-red;
     letter-spacing: 1px;
   }
 }
