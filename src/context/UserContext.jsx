@@ -1,3 +1,4 @@
+import { message } from "antd";
 import React, { createContext, useEffect, useState } from "react";
 import accountService from "../service/accountService";
 
@@ -17,6 +18,7 @@ export default function UserProvider({ children }) {
 
       accountService.getDetails().then((data) => {
         localStorage.setItem("user", JSON.stringify(data));
+
         setUser(data);
       });
     }
@@ -24,7 +26,7 @@ export default function UserProvider({ children }) {
 
   function logout() {
     localStorage.clear();
-
+    message.info("bye!");
     setUser(null);
     setSessionId(null);
   }

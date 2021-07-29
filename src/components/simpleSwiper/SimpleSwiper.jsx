@@ -7,6 +7,7 @@ import SwiperCore, { Pagination, Autoplay } from "swiper/core";
 import MovieCard from "../movieCard/MovieCard";
 import image from "../../helper/image";
 import slugigy from "../../helper/slugify";
+import { message } from "antd";
 
 SwiperCore.use([Pagination, Autoplay]);
 

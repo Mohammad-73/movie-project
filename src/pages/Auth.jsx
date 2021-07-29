@@ -4,6 +4,8 @@ import Container from "../components/layout/Container";
 import { UserContext } from "../context/UserContext";
 import authService from "../service/authService";
 import Seo from "../components/seo/Seo";
+import accountService from "../service/accountService";
+import { message } from "antd";
 
 export default function Auth() {
   const { setSessionId } = useContext(UserContext);
@@ -15,24 +17,15 @@ export default function Auth() {
 
   useEffect(() => {
     if (requestToken) {
-      const url =
-        "https://api.themoviedb.org/3/authentication/session/new?api_key=afd6ea76f8c05c6675803101b0b04f2a";
-      fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ request_token: requestToken }),
-      })
-        .then((r) => r.json())
-        .then((data) => {
-          setSessionId(data.session_id);
-          history.replace("/");
-        });
-
       authService.createSession(requestToken).then((data) => {
         setSessionId(data.session_id);
         history.replace("/");
+
+        accountService.getDetails().then((data) => {
+          message.success(
+            `${data.name || data.username} welcome to anduril movie!`
+          );
+        });
       });
     }
   }, [requestToken]);

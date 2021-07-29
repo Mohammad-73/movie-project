@@ -12,7 +12,7 @@ function URL(url) {
 
   const queryParams = new URLSearchParams(query).toString();
 
-  return `http://api.themoviedb.org/3/${url.path}?${queryParams}`;
+  return `https://api.themoviedb.org/3/${url.path}?${queryParams}`;
 }
 
 function options(body, method) {

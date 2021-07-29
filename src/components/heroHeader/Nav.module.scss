@@ -18,15 +18,15 @@
       letter-spacing: 1px;
     }
     :hover {
-      background-color: $imperial-red;
+      background-color: $amaranth-red;
       color: $alice-blue;
-      border: 1px solid $imperial-red;
+      border: 1px solid $amaranth-red;
     }
   }
   .active {
     font-weight: 500;
-    color: $imperial-red;
-    border: 1px solid $imperial-red;
+    color: $amaranth-red;
+    border: 1px solid $amaranth-red;
     letter-spacing: 1px;
   }
 }
