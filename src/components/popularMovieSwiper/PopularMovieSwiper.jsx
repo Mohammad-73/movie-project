@@ -12,7 +12,14 @@ export default function PopularMovieSwiper() {
     setBg(image(slide.backdrop_path, "w780"));
   }
 
+  function setToDefaultBackground() {
+    setBg("./images/header-bg.jpg");
+  }
   return (
-    <SimpleSwiper slides={data.results} onHoverSlide={changeHeaderBackground} />
+    <SimpleSwiper
+      slides={data.results}
+      onHoverSlide={changeHeaderBackground}
+      onHoverOutSlide={setToDefaultBackground}
+    />
   );
 }

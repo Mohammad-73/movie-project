@@ -11,7 +11,11 @@ import { message } from "antd";
 
 SwiperCore.use([Pagination, Autoplay]);
 
-export default function SimpleSwiper({ slides, onHoverSlide }) {
+export default function SimpleSwiper({
+  slides,
+  onHoverSlide,
+  onHoverOutSlide,
+}) {
   return (
     <Swiper
       pagination={{
@@ -41,7 +45,11 @@ export default function SimpleSwiper({ slides, onHoverSlide }) {
       }}
     >
       {slides.map((slide) => (
-        <SwiperSlide key={slide.id} onMouseEnter={() => onHoverSlide(slide)}>
+        <SwiperSlide
+          key={slide.id}
+          onMouseEnter={() => onHoverSlide(slide)}
+          onMouseLeave={onHoverOutSlide}
+        >
           <MovieCard
             poster={image(slide.poster_path, "w342")}
             title={slide.title}

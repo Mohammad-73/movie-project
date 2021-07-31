@@ -11,6 +11,8 @@ import SearchResult from "./SearchResult";
 import Auth from "./Auth";
 import Celebrity from "./Celebrity";
 import TvShow from "./TvShow";
+import Profile from "./Profile";
+import PrivateRoutes from "../components/privateRoutes/PrivateRoutes";
 
 export default function Pages() {
   return (
@@ -48,6 +50,9 @@ export default function Pages() {
       <Route path="/searchresults">
         <SearchResult />
       </Route>
+      <PrivateRoutes path="/profile">
+        <Profile />
+      </PrivateRoutes>
     </Switch>
   );
 }

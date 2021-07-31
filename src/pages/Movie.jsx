@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useMovieDB from "../hooks/useMovieDB";
 import Container from "../components/layout/Container";
 import Seo from "../components/seo/Seo";
+import { message, Rate } from "antd";
+import movieService from "../service/movieService";
 
 export default function Movie() {
   const { id } = useParams();
-  const { data = {}, loading } = useMovieDB(`movie/${id}`);
+  const { data = {}, loading, reFetch } = useMovieDB(`movie/${id}`);
+
+  useEffect(() => {
+    reFetch();
+  }, [id]);
+
+  function handleRateMovie(rate) {
+    movieService.rate(data.id, rate);
+    message.success(`Rate ${rate} is submitted.`);
+  }
 
   return (
     <Container>
       <Seo title={data.title} />
       <p>{data.title}</p>
+      <Rate
+        allowHalf
+        count={10}
+        value={data.vote_average}
+        onChange={handleRateMovie}
+      />
+      {data.vote_average}
     </Container>
   );
 }
