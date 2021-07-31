@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 import useMovieDB from "../hooks/useMovieDB";
 import Container from "../components/layout/Container";
 import Seo from "../components/seo/Seo";
-import { message, Rate } from "antd";
+import { Col, message, Rate, Row } from "antd";
 import movieService from "../service/movieService";
+import MovieCard from "../components/movieCard/MovieCard";
+import image from "../helper/image";
 
 export default function Movie() {
   const { id } = useParams();
@@ -18,10 +20,19 @@ export default function Movie() {
     movieService.rate(data.id, rate);
     message.success(`Rate ${rate} is submitted.`);
   }
-
+  console.log(data);
   return (
     <Container>
       <Seo title={data.title} />
+      <Row>
+        <Col>
+          <MovieCard
+            poster={image(data.poster_path, "w342")}
+            title={data.title}
+            rete={data.vote_average}
+          />
+        </Col>
+      </Row>
       <p>{data.title}</p>
       <Rate
         allowHalf

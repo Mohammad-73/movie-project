@@ -53,7 +53,7 @@ export default function SimpleSwiper({
           <MovieCard
             poster={image(slide.poster_path, "w342")}
             title={slide.title}
-            rete={slide.vote_average}
+            rate={slide.vote_average}
             linkPath={`/movies/${slide.id}/${slugigy(slide.title)}`}
           />
         </SwiperSlide>

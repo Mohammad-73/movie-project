@@ -31,4 +31,9 @@
       position: absolute;
     }
   }
+  :global {
+    .ant-progress-text {
+      color: white !important;
+    }
+  }
 }
