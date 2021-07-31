@@ -49,7 +49,7 @@ export default function Search() {
   function handleLoadMovie(id) {
     const data = searchedItem.find((d) => d.id == id);
     setInputValue("");
-    console.log("data:", data);
+
     switch (data.media_type) {
       case "movie":
         setBg(image(data.backdrop_path, "w780"));

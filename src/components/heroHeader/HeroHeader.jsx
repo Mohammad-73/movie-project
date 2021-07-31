@@ -7,7 +7,7 @@ import { HeroHeaderContext } from "../../context/HeroHeaderContext";
 
 export default function HeroHeader({ children }) {
   const [bg] = useContext(HeroHeaderContext);
-  console.log(bg);
+
   return (
     <header
       className={classes.root}

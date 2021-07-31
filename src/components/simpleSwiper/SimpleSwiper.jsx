@@ -47,8 +47,8 @@ export default function SimpleSwiper({
       {slides.map((slide) => (
         <SwiperSlide
           key={slide.id}
-          onMouseEnter={() => onHoverSlide(slide)}
-          onMouseLeave={onHoverOutSlide}
+          {...(onHoverOutSlide ? { onMouseLeave: onHoverOutSlide } : {})}
+          {...(onHoverSlide ? { onMouseEnter: () => onHoverSlide(slide) } : {})}
         >
           <MovieCard
             poster={image(slide.poster_path, "w342")}
