@@ -1,47 +1,57 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useMovieDB from "../hooks/useMovieDB";
-import Container from "../components/layout/Container";
 import Seo from "../components/seo/Seo";
-import { Col, message, Rate, Row } from "antd";
-import movieService from "../service/movieService";
-import MovieCard from "../components/movieCard/MovieCard";
-import image from "../helper/image";
+import MovieInfo from "../components/movieInfo/MovieInfo";
+import SimpleSwiper from "../components/simpleSwiper/SimpleSwiper";
+import Container from "../components/layout/Container";
+import PersonSwiper from "../components/personSwiper/PersonSwiper";
+import { Tabs, Divider } from "antd";
+const { TabPane } = Tabs;
 
 export default function Movie() {
   const { id } = useParams();
   const { data = {}, loading, reFetch } = useMovieDB(`movie/${id}`);
+  const similarMovie = useMovieDB(`movie/${id}/similar`);
+  const credits = useMovieDB(`movie/${id}/credits`);
 
   useEffect(() => {
     reFetch();
+    similarMovie.reFetch();
+    credits.reFetch();
   }, [id]);
 
-  function handleRateMovie(rate) {
-    movieService.rate(data.id, rate);
-    message.success(`Rate ${rate} is submitted.`);
-  }
-  console.log(data);
   return (
-    <Container>
+    <>
       <Seo title={data.title} />
-      <Row>
-        <Col>
-          <MovieCard
-            poster={image(data.poster_path, "w342")}
-            title={data.title}
-            rete={data.vote_average}
-          />
-        </Col>
-      </Row>
-      <p>{data.title}</p>
-      <Rate
-        allowHalf
-        count={10}
-        value={data.vote_average}
-        onChange={handleRateMovie}
-      />
-      {data.vote_average}
-    </Container>
+      <MovieInfo data={data} />
+      <Container>
+        <Tabs defaultActiveKey="1">
+          <TabPane tab="Cast" key="1">
+            <PersonSwiper slides={credits?.data?.cast} />
+          </TabPane>
+          <TabPane tab="Trailers" key="2">
+            Content of Tab Pane 2
+          </TabPane>
+        </Tabs>
+      </Container>
+      <Divider />
+      <Container>
+        <div>
+          <p
+            style={{
+              fontFamily: "Zen Tokyo Zoo , cursive",
+              fontSize: 20,
+              letterSpacing: 2,
+              color: "#ef233c",
+            }}
+          >
+            SIMILAR MOVIES
+          </p>
+        </div>
+        <SimpleSwiper slides={similarMovie?.data?.results} />
+      </Container>
+    </>
   );
 }
 

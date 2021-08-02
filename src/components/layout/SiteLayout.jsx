@@ -4,6 +4,7 @@ import Pages from "../../pages/Pages";
 import HeroHeader from "../heroHeader/HeroHeader";
 import { useLocation } from "react-router-dom";
 import PopularMovieSwiper from "../popularMovieSwiper/PopularMovieSwiper";
+import About from "../../pages/About";
 const { Content, Footer } = Layout;
 
 export default function SiteLayout() {
@@ -14,7 +15,8 @@ export default function SiteLayout() {
       case "/":
         return <PopularMovieSwiper />;
       case "/about":
-        return <div>about</div>;
+        return <About />;
+
       default:
         return null;
     }
@@ -26,7 +28,14 @@ export default function SiteLayout() {
       <Content className="site-layout">
         <Pages />
       </Content>
-      <Footer style={{ textAlign: "center" }}>
+      <Footer
+        style={{
+          textAlign: "center",
+          backgroundColor: "#2b2d42",
+          color: "#d90429",
+          textShadow: "2px 2px 4px #000000",
+        }}
+      >
         Ant Design ©2018 Created by Ant UED
       </Footer>
     </Layout>

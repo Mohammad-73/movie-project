@@ -7,20 +7,27 @@ import UpcomingMovieSwiper from "../components/upcomingMovieSwiper/UpcomingMovie
 import TopRatedMovieSwiper from "../components/topRatedtopRated/TopRatedMovieSwiper";
 import NowPlayingMovieSwiper from "../components/nowPlayingMovieSwiper/NowPlayingMovieSwiper";
 import Seo from "../components/seo/Seo";
+import ContainerFullWidth from "../components/layout/ContainerFullWidth";
 
 export default function Home() {
   return (
     <>
       <Seo title="Home" />
-      <Container>
-        <UpcomingMovieSwiper />
-      </Container>
-      <Container>
-        <TopRatedMovieSwiper />
-      </Container>
-      <Container>
-        <NowPlayingMovieSwiper />
-      </Container>
+      <ContainerFullWidth>
+        <Container>
+          <UpcomingMovieSwiper />
+        </Container>
+      </ContainerFullWidth>
+      <ContainerFullWidth>
+        <Container>
+          <TopRatedMovieSwiper />
+        </Container>
+      </ContainerFullWidth>
+      <ContainerFullWidth>
+        <Container>
+          <NowPlayingMovieSwiper />
+        </Container>
+      </ContainerFullWidth>
     </>
   );
 }

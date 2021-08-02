@@ -1,0 +1,68 @@
+@import "../../assets/css/variable.scss";
+@import url("https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+.root {
+  :global {
+    .ant-progress-text {
+      color: $alice-blue !important;
+    }
+    .ant-tabs-tabpane {
+      color: $alice-blue;
+    }
+    .ant-tabs-tab-btn {
+      color: $alice-blue;
+    }
+    .ant-tabs-tab-active {
+      color: $amaranth-red;
+      ::selection {
+        color: red !important;
+      }
+    }
+    .anticon-star {
+      color: $alice-blue;
+      background-color: $amaranth-red;
+      padding: 15px;
+      border-radius: 50%;
+    }
+  }
+  .title {
+    font-family: "Zen Tokyo Zoo , cursive";
+    color: $amaranth-red;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px #000000;
+  }
+  .genres {
+    display: block;
+  }
+  .genre {
+    background-color: $alice-blue;
+    padding: 1px 3px;
+    margin: 5px;
+    border-radius: 3px;
+    float: left;
+  }
+  .genre p {
+    color: $space-cadet;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+  }
+  .tab {
+    clear: both;
+    margin-top: 20px;
+    font-family: "Montserrat", sans-serif;
+  }
+  .info {
+    margin-bottom: 20px;
+  }
+  .info span:first-child {
+    margin-right: 10px;
+    padding-right: 3px;
+    border-right: 1px solid $amaranth-red;
+  }
+  .rate_movie {
+    clear: both;
+    margin-top: 60px;
+  }
+}

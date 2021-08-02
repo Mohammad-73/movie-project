@@ -4,18 +4,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, { Pagination, Autoplay } from "swiper/core";
-import MovieCard from "../movieCard/MovieCard";
 import image from "../../helper/image";
 import slugigy from "../../helper/slugify";
 import { message } from "antd";
+import PersonCard from "../personCard/PersonCard";
 
 SwiperCore.use([Pagination, Autoplay]);
 
-export default function SimpleSwiper({
-  slides,
-  onHoverSlide,
-  onHoverOutSlide,
-}) {
+export default function PersonSwiper({ slides }) {
   return (
     <Swiper
       pagination={{
@@ -45,16 +41,11 @@ export default function SimpleSwiper({
       }}
     >
       {slides?.map((slide) => (
-        <SwiperSlide
-          key={slide.id}
-          {...(onHoverOutSlide ? { onMouseLeave: onHoverOutSlide } : {})}
-          {...(onHoverSlide ? { onMouseEnter: () => onHoverSlide(slide) } : {})}
-        >
-          <MovieCard
-            poster={image(slide.poster_path, "w342")}
-            title={slide.title}
-            rate={slide.vote_average}
-            linkPath={`/movies/${slide.id}/${slugigy(slide?.name)}`}
+        <SwiperSlide key={slide.id}>
+          <PersonCard
+            poster={image(slide.profile_path, "w185")}
+            name={slide.name}
+            linkPath={`/celebrities/${slide.id}/${slugigy(slide?.name)}`}
           />
         </SwiperSlide>
       ))}
@@ -62,6 +53,6 @@ export default function SimpleSwiper({
   );
 }
 
-SimpleSwiper.propTypes = {
+PersonSwiper.propTypes = {
   slides: PropTypes.array.isRequired,
 };
