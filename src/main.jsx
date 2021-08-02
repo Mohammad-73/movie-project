@@ -6,12 +6,14 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import HeroHeaderProvider from "./context/HeroHeaderContext";
 import UserProvider from "./context/UserContext";
+import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
       <BrowserRouter>
         <HeroHeaderProvider>
+          <ScrollToTop />
           <App />
         </HeroHeaderProvider>
       </BrowserRouter>

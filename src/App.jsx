@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SiteLayout from "./components/layout/SiteLayout";
 
 function App() {

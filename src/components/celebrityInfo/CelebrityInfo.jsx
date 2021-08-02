@@ -1,4 +1,4 @@
-import { Row, Col, Image } from "antd";
+import { Row, Col, Image, Divider } from "antd";
 import React from "react";
 import classes from "./CelebrityInfo.module.scss";
 import image from "../../helper/image";
@@ -47,14 +47,9 @@ export default function CelebrityInfo({ data, personCredit }) {
               </div>
             </Col>
           </Row>
-          <Row style={{ marginTop: 50, marginBottom: 50 }}>
-            <Col>
-              <div>
-                <p></p>
-                <SimpleSwiper slides={personCredit?.data?.cast} />
-              </div>
-            </Col>
-          </Row>
+          <Divider />
+          <p>MOVIES</p>
+          <SimpleSwiper slides={personCredit?.data?.cast} />
         </Container>
       </ContainerFullWidth>
     </div>
