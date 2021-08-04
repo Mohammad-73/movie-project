@@ -13,7 +13,7 @@ export default function CelebrityInfo({ data, personCredit }) {
     <div className={classes.root}>
       <ContainerFullWidth backgroundImage={background}>
         <Container>
-          <Row>
+          <Row gutter={(24, 24)}>
             <Col xs={24} sm={22} md={22} lg={10} xl={10}>
               <Image
                 width={"100%"}
