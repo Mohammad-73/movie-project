@@ -16,7 +16,7 @@ export default function CelebrityInfo({ data, personCredit }) {
           <Row>
             <Col xs={24} sm={22} md={22} lg={10} xl={10}>
               <Image
-                width={350}
+                width={"100%"}
                 src={image(data.profile_path, "h632")}
                 placeholder={
                   <Image

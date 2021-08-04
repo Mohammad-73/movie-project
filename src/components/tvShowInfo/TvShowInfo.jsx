@@ -47,7 +47,7 @@ export default function TvShowInfo({ data }) {
           <Row gutter={24}>
             <Col xs={24} sm={22} md={22} lg={8} xl={8}>
               <Image
-                width={350}
+                width={"100%"}
                 src={image(data.poster_path, "w500")}
                 placeholder={
                   <Image
