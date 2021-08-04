@@ -5,7 +5,7 @@ import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, { Pagination, Autoplay } from "swiper/core";
 import image from "../../helper/image";
-import slugigy from "../../helper/slugify";
+import slugify from "../../helper/slugify";
 import { message } from "antd";
 import PersonCard from "../personCard/PersonCard";
 
@@ -45,7 +45,7 @@ export default function PersonSwiper({ slides }) {
           <PersonCard
             poster={image(slide.profile_path, "w185")}
             name={slide.name}
-            linkPath={`/celebrities/${slide.id}/${slugigy(slide?.name)}`}
+            linkPath={`/celebrities/${slide.id}/${slugify(slide?.name)}`}
           />
         </SwiperSlide>
       ))}

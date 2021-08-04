@@ -53,13 +53,13 @@ export default function Search() {
     switch (data.media_type) {
       case "movie":
         setBg(image(data.backdrop_path, "w780"));
-        return history.push(`/movies/${data.id}/${slugify(data.title)}`);
+        return history.push(`/movies/${data.id}/${slugify(data?.title)}`);
       case "tv":
         setBg(image(data.backdrop_path, "w780"));
-        return history.push(`/tv-shows/${data.id}/${slugify(data.name)}`);
+        return history.push(`/tv-shows/${data.id}/${slugify(data?.name)}`);
       case "person":
         setBg(image(data.profile_path, "h632"));
-        return history.push(`/celebrities/${data.id}/${slugify(data.name)}`);
+        return history.push(`/celebrities/${data.id}/${slugify(data?.name)}`);
     }
   }
 

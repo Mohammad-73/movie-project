@@ -6,7 +6,7 @@ import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, { Pagination, Autoplay } from "swiper/core";
 import MovieCard from "../movieCard/MovieCard";
 import image from "../../helper/image";
-import slugigy from "../../helper/slugify";
+import slugify from "../../helper/slugify";
 import { message } from "antd";
 
 SwiperCore.use([Pagination, Autoplay]);
@@ -54,7 +54,7 @@ export default function SimpleSwiper({
             poster={image(slide.poster_path, "w342")}
             title={slide.title}
             rate={slide.vote_average}
-            linkPath={`/movies/${slide.id}/${slugigy(slide?.name)}`}
+            linkPath={`/movies/${slide.id}/${slugify(slide?.title)}`}
           />
         </SwiperSlide>
       ))}
