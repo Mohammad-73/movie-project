@@ -1,0 +1,12 @@
+@import "../assets/css/variable.scss";
+@import url("https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+.root {
+  .title p {
+    color: $amaranth-red;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 18px;
+  }
+}

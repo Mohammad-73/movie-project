@@ -1,5 +1,12 @@
 @import "../../assets/css/variable.scss";
 .root {
+  :global {
+    .ant-btn {
+      background-color: $amaranth-red;
+      color: $alice-blue;
+      border: $amaranth-red;
+    }
+  }
   ul {
     margin: 0;
     padding: 0;
