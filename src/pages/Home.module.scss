@@ -9,4 +9,18 @@
     text-shadow: 2px 2px 4px #000000;
     font-size: 18px;
   }
+  .bg {
+    background-size: cover;
+    height: 650px;
+    p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $alice-blue;
+      font-size: 60px;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px #000000;
+    }
+  }
 }

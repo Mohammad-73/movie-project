@@ -18,6 +18,7 @@ export default function SimpleSwiper({
 }) {
   return (
     <Swiper
+      style={{ marginBottom: 30 }}
       pagination={{
         clickable: true,
       }}

@@ -14,6 +14,7 @@ SwiperCore.use([Pagination, Autoplay]);
 export default function PersonSwiper({ slides }) {
   return (
     <Swiper
+      style={{ marginBottom: 30 }}
       pagination={{
         clickable: true,
       }}

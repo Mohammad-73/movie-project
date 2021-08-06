@@ -9,13 +9,16 @@ import NowPlayingMovieSwiper from "../components/nowPlayingMovieSwiper/NowPlayin
 import Seo from "../components/seo/Seo";
 import ContainerFullWidth from "../components/layout/ContainerFullWidth";
 import classes from "./Home.module.scss";
+import swiperBg from "../../public/images/swiper-bg.png";
+import trilogyBg from "../../public/images/trilogy-bg.jpg";
+import franchiseBg from "../../public/images/franchise-bg.jpg";
 const { TabPane } = Tabs;
 
 export default function Home() {
   return (
     <div className={classes.root}>
       <Seo title="Home" />
-      <ContainerFullWidth>
+      <ContainerFullWidth backgroundImage={swiperBg}>
         <Container>
           <div className={classes.title}>
             <p style={{ fontFamily: "Zen Tokyo Zoo , cursive" }}>POPULAR</p>
@@ -31,6 +34,16 @@ export default function Home() {
         </Container>
       </ContainerFullWidth>
       <ContainerFullWidth>
+        <div
+          className={classes.bg}
+          style={{
+            backgroundImage: `linear-gradient(rgb(00 00 00/100%),rgb(43 45 66/50%),rgb(217 4 41/50%),rgb(217 4 41/50%),rgb(217 4 41/50%),rgb(43 45 66/50%),rgb(00 00 00/100%)), url(${trilogyBg})`,
+          }}
+        >
+          <p>Best Trilogy Movies </p>
+        </div>
+      </ContainerFullWidth>
+      <ContainerFullWidth backgroundImage={swiperBg}>
         <Container>
           <div className={classes.title}>
             <p style={{ fontFamily: "Zen Tokyo Zoo , cursive" }}>TOP RATED</p>
@@ -46,6 +59,16 @@ export default function Home() {
         </Container>
       </ContainerFullWidth>
       <ContainerFullWidth>
+        <div
+          className={classes.bg}
+          style={{
+            backgroundImage: `linear-gradient(rgb(00 00 00/100%),rgb(43 45 66/50%),rgb(217 4 41/50%),rgb(217 4 41/50%),rgb(217 4 41/50%),rgb(43 45 66/50%),rgb(00 00 00/100%)), url(${franchiseBg})`,
+          }}
+        >
+          <p>Best Franchise Movies </p>
+        </div>
+      </ContainerFullWidth>
+      <ContainerFullWidth backgroundImage={swiperBg}>
         <Container>
           <div className={classes.title}>
             <p style={{ fontFamily: "Zen Tokyo Zoo , cursive" }}>NOW PLAYING</p>

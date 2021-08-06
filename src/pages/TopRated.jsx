@@ -3,6 +3,7 @@ import useMovieDB from "../hooks/useMovieDB";
 // import antd
 import { Pagination, Row, Col, Card, Spin } from "antd";
 import Seo from "../components/seo/Seo";
+import Container from "../components/layout/Container";
 const { Meta } = Card;
 
 export default function Home() {
@@ -19,15 +20,15 @@ export default function Home() {
   }
 
   return (
-    <>
+    <Container>
       <Seo title="Top Rated" />
       <Spin spinning={loading}>
         <Row gutter={[24, 24]}>
           {results?.map((movie) => (
-            <Col key={movie.id} xs={24} sm={12} md={8} lg={6} xl={4}>
+            <Col key={movie.id} xs={24} sm={12} md={8} lg={6} xl={6}>
               <Card
                 hoverable
-                style={{ overflow: "hidden", height: 500 }}
+                style={{ overflow: "hidden", height: 560 }}
                 cover={
                   <img
                     alt={movie.original_title}
@@ -57,6 +58,6 @@ export default function Home() {
           />
         </Col>
       </Row>
-    </>
+    </Container>
   );
 }
