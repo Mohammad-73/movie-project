@@ -3,6 +3,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
 .root {
+  :global {
+    .ant-btn {
+      background-color: $alice-blue;
+      border: $alice-blue;
+      position: absolute;
+      top: 62%;
+      left: 50%;
+      transform: translate(-50%, -62%);
+    }
+    .ant-btn span {
+      color: $amaranth-red;
+    }
+  }
   .title p {
     color: $amaranth-red;
     letter-spacing: 2px;

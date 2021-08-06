@@ -1,7 +1,7 @@
 import React from "react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
-import { Tabs } from "antd";
+import { Button, Tabs } from "antd";
 import Container from "../components/layout/Container";
 import UpcomingMovieSwiper from "../components/upcomingMovieSwiper/UpcomingMovieSwiper";
 import TopRatedMovieSwiper from "../components/topRatedtopRated/TopRatedMovieSwiper";
@@ -41,6 +41,7 @@ export default function Home() {
           }}
         >
           <p>Best Trilogy Movies </p>
+          <Button>Load More...</Button>
         </div>
       </ContainerFullWidth>
       <ContainerFullWidth backgroundImage={swiperBg}>
@@ -66,6 +67,7 @@ export default function Home() {
           }}
         >
           <p>Best Franchise Movies </p>
+          <Button>Load More...</Button>
         </div>
       </ContainerFullWidth>
       <ContainerFullWidth backgroundImage={swiperBg}>
