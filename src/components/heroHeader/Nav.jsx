@@ -23,7 +23,33 @@ export default function Nav() {
       </Menu.Item>
     </Menu>
   );
-
+  const dropDownMenuMovie = () => (
+    <Menu>
+      <Menu.Item>
+        <NavLink activeClassName={classes.dropActive} to="/upcoming">
+          Upcoming
+        </NavLink>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item>
+        <NavLink activeClassName={classes.dropActive} to="/toprated">
+          Top Rated
+        </NavLink>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item>
+        <NavLink activeClassName={classes.dropActive} to="/popular">
+          Popular
+        </NavLink>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item>
+        <NavLink activeClassName={classes.dropActive} to="/nowplaying">
+          Now Playing
+        </NavLink>
+      </Menu.Item>
+    </Menu>
+  );
   function handleLogin() {
     authService.createRequestToken().then((data) => {
       window.location = `https://www.themoviedb.org/authenticate/${
@@ -44,9 +70,15 @@ export default function Nav() {
                 </NavLink>
               </li>
               <li>
-                <NavLink activeClassName={classes.active} to="/movies">
-                  Movies
-                </NavLink>
+                <Dropdown overlay={dropDownMenuMovie()}>
+                  <a
+                    className="ant-dropdown-link"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    Movies
+                    <DownOutlined />
+                  </a>
+                </Dropdown>
               </li>
               <li>
                 <NavLink activeClassName={classes.active} to="/tv-shows">

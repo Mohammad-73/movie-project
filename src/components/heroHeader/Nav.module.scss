@@ -36,4 +36,8 @@
     border: 1px solid $amaranth-red;
     letter-spacing: 1px;
   }
+  .dropActive {
+    background-color: $amaranth-red;
+    color: $alice-blue;
+  }
 }
