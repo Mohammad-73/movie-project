@@ -11,6 +11,12 @@
     margin: 0;
     padding: 0;
   }
+  ul li:first-child {
+    :hover {
+      border: none;
+      background-color: inherit;
+    }
+  }
   li {
     display: inline-block;
     padding-right: 30px;

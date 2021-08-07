@@ -35,7 +35,6 @@ export default function TvShow() {
           </TabPane>
         </Tabs>
       </Container>
-
       <Container>
         <div>
           <p

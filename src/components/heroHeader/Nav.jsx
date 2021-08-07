@@ -1,4 +1,4 @@
-import { Avatar, Button, Col, Row, Menu, Dropdown } from "antd";
+import { Avatar, Button, Col, Row, Menu, Dropdown, Image } from "antd";
 import { UserOutlined, DownOutlined } from "@ant-design/icons";
 import React, { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
@@ -7,6 +7,7 @@ import Container from "../layout/Container";
 import image from "../../helper/image";
 import { Link, NavLink } from "react-router-dom";
 import classes from "./Nav.module.scss";
+import logo from "../../../public/logo-2.png";
 
 export default function Nav() {
   const { user, logout } = useContext(UserContext);
@@ -64,6 +65,9 @@ export default function Nav() {
         <Row justify="space-between">
           <Col>
             <ul>
+              <li>
+                <img width="200px" src={logo} />
+              </li>
               <li>
                 <NavLink exact activeClassName={classes.active} to="/">
                   Home
