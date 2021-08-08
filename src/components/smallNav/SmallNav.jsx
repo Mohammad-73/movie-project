@@ -1,12 +1,22 @@
 import React, { useState } from "react";
-import { Col, Row, Menu, Dropdown, Avatar, Button, Divider } from "antd";
+import {
+  Col,
+  Row,
+  Menu,
+  Dropdown,
+  Avatar,
+  Button,
+  Drawer,
+  Collapse,
+} from "antd";
 import Container from "../layout/Container";
-import { UserOutlined, MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import { UserOutlined, MenuOutlined } from "@ant-design/icons";
 import logo from "../../../public/logo-2.png";
 import authService from "../../service/authService";
 import image from "../../helper/image";
 import { Link, NavLink } from "react-router-dom";
 import classes from "./SmallNav.module.scss";
+const { Panel } = Collapse;
 
 export default function SmallNav({ user, logout }) {
   const [toggleSmallMenu, setToggleSmallMenu] = useState(false);
@@ -17,7 +27,6 @@ export default function SmallNav({ user, logout }) {
         <Link to="/profile">{user.name}</Link>
       </Menu.Item>
       <Menu.Divider />
-
       <Menu.Item onClick={logout} danger>
         Logout
       </Menu.Item>
@@ -32,20 +41,125 @@ export default function SmallNav({ user, logout }) {
     });
   }
 
+  const showDrawer = () => {
+    setToggleSmallMenu(true);
+  };
+
+  const onClose = () => {
+    setToggleSmallMenu(false);
+  };
+
   return (
-    <div className={classes.root}>
-      {toggleSmallMenu && (
-        <div className={classes.sidebar}>
-          <span>
-            <CloseOutlined onClick={() => setToggleSmallMenu(false)} />
-          </span>
-          <Divider />
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/">Movies</NavLink>
-          <NavLink to="/">Tv Shows</NavLink>
-          <NavLink to="/">Celebrities</NavLink>
-        </div>
-      )}
+    <div className={classes.smallNavRoot}>
+      <Drawer
+        placement="right"
+        closable={true}
+        onClose={onClose}
+        visible={toggleSmallMenu}
+      >
+        <Collapse ghost>
+          <NavLink to="/">
+            <Panel
+              style={{ color: "#edf2f4", paddingLeft: 12 }}
+              showArrow={false}
+              header="Home"
+              key="1"
+            ></Panel>
+          </NavLink>
+          <Panel showArrow={false} header="Movies" key="2">
+            <NavLink
+              style={{
+                color: "#edf2f4",
+                display: "block",
+                padding: "5px 0 0 30px",
+              }}
+              to="/upcoming"
+            >
+              Upcoming
+            </NavLink>
+            <NavLink
+              style={{
+                color: "#edf2f4",
+                display: "block",
+                padding: "5px 0 0 30px",
+              }}
+              to="/toprated"
+            >
+              Top Rated
+            </NavLink>
+            <NavLink
+              style={{
+                color: "#edf2f4",
+                display: "block",
+                padding: "5px 0 0 30px",
+              }}
+              to="/popular"
+            >
+              Popular
+            </NavLink>
+            <NavLink
+              style={{
+                color: "#edf2f4",
+                display: "block",
+                padding: "5px 0 0 30px",
+              }}
+              to="/nowplaying"
+            >
+              Now Playing
+            </NavLink>
+          </Panel>
+          <Panel showArrow={false} header="Tv Shows" key="5">
+            <NavLink
+              style={{
+                color: "#edf2f4",
+                display: "block",
+                padding: "5px 0 0 30px",
+              }}
+              to=""
+            >
+              Upcoming
+            </NavLink>
+            <NavLink
+              style={{
+                color: "#edf2f4",
+                display: "block",
+                padding: "5px 0 0 30px",
+              }}
+              to="/"
+            >
+              Top Rated
+            </NavLink>
+            <NavLink
+              style={{
+                color: "#edf2f4",
+                display: "block",
+                padding: "5px 0 0 30px",
+              }}
+              to="/"
+            >
+              Popular
+            </NavLink>
+            <NavLink
+              style={{
+                color: "#edf2f4",
+                display: "block",
+                padding: "5px 0 0 30px",
+              }}
+              to="/"
+            >
+              Now Playing
+            </NavLink>
+          </Panel>
+          <NavLink to="/">
+            <Panel
+              style={{ color: "#edf2f4", paddingLeft: 12 }}
+              header="Celebrities"
+              showArrow={false}
+              key="4"
+            ></Panel>
+          </NavLink>
+        </Collapse>
+      </Drawer>
       <Container>
         <Row justify="space-between">
           <Col>
@@ -72,7 +186,7 @@ export default function SmallNav({ user, logout }) {
           </Col>
           <Col>
             <MenuOutlined
-              onClick={() => setToggleSmallMenu(true)}
+              onClick={showDrawer}
               style={{ fontSize: 30, cursor: "pointer" }}
             />
           </Col>
