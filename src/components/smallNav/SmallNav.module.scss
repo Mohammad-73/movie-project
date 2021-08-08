@@ -1,0 +1,38 @@
+@import "../../assets/css/variable.scss";
+
+.root {
+  position: relative;
+  padding: 10px;
+  .sidebar {
+    position: absolute;
+    width: 250px;
+    height: 400px;
+    top: 0;
+    right: 0;
+    background-color: $space-cadet;
+    overflow: auto;
+    z-index: 9;
+    transition: 0.5s;
+    span {
+      font-size: 18px;
+      padding: 5px;
+      margin: 10px 0 0 0;
+      :hover {
+        cursor: pointer;
+      }
+    }
+    a {
+      display: block;
+      color: $alice-blue;
+      padding: 0 15px;
+      margin-bottom: 10px;
+      width: 100%;
+      font-size: 16px;
+      letter-spacing: 1px;
+      :hover {
+        background-color: $amaranth-red !important;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { Avatar, Button, Col, Row, Menu, Dropdown, Image } from "antd";
+import { Avatar, Button, Col, Row, Menu, Dropdown } from "antd";
 import { UserOutlined, DownOutlined } from "@ant-design/icons";
 import React, { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
@@ -8,9 +8,12 @@ import image from "../../helper/image";
 import { Link, NavLink } from "react-router-dom";
 import classes from "./Nav.module.scss";
 import logo from "../../../public/logo-2.png";
+import useWindowSize from "../../hooks/useWindowSize";
+import SmallNav from "../smallNav/SmallNav";
 
 export default function Nav() {
   const { user, logout } = useContext(UserContext);
+  const { windowWidth } = useWindowSize();
 
   const menu = () => (
     <Menu>
@@ -24,6 +27,7 @@ export default function Nav() {
       </Menu.Item>
     </Menu>
   );
+
   const dropDownMenuMovie = () => (
     <Menu>
       <Menu.Item>
@@ -51,6 +55,7 @@ export default function Nav() {
       </Menu.Item>
     </Menu>
   );
+
   function handleLogin() {
     authService.createRequestToken().then((data) => {
       window.location = `https://www.themoviedb.org/authenticate/${
@@ -62,60 +67,63 @@ export default function Nav() {
   return (
     <nav className={classes.root}>
       <Container>
-        <Row justify="space-between">
-          <Col>
-            <ul>
-              <li>
-                <img width="200px" src={logo} />
-              </li>
-              <li>
-                <NavLink exact activeClassName={classes.active} to="/">
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <Dropdown overlay={dropDownMenuMovie()}>
-                  <a
-                    className="ant-dropdown-link"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    Movies
-                    <DownOutlined />
-                  </a>
+        {windowWidth < 768 ? (
+          <SmallNav user={user} logout={logout} />
+        ) : (
+          <Row justify="space-between">
+            <Col>
+              <ul>
+                <li>
+                  <img width="200px" src={logo} />
+                </li>
+                <li>
+                  <NavLink exact activeClassName={classes.active} to="/">
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <Dropdown overlay={dropDownMenuMovie()}>
+                    <a
+                      className="ant-dropdown-link"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      Movies <DownOutlined />
+                    </a>
+                  </Dropdown>
+                </li>
+                <li>
+                  <NavLink activeClassName={classes.active} to="/tv-shows">
+                    Tv Shows
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink activeClassName={classes.active} to="/celebrities">
+                    Celebrities
+                  </NavLink>
+                </li>
+              </ul>
+            </Col>
+            <Col>
+              {user ? (
+                <Dropdown
+                  overlay={menu()}
+                  placement="bottomCenter"
+                  trigger={["click"]}
+                >
+                  <Avatar
+                    style={{ cursor: "pointer" }}
+                    size="large"
+                    {...(user?.avatar?.tmdb?.avatar_path
+                      ? { src: image(user?.avatar?.tmdb?.avatar_path, "w185") }
+                      : { icon: <UserOutlined /> })}
+                  />
                 </Dropdown>
-              </li>
-              <li>
-                <NavLink activeClassName={classes.active} to="/tv-shows">
-                  Tv Shows
-                </NavLink>
-              </li>
-              <li>
-                <NavLink activeClassName={classes.active} to="/celebrities">
-                  Celebrities
-                </NavLink>
-              </li>
-            </ul>
-          </Col>
-          <Col>
-            {user ? (
-              <Dropdown
-                overlay={menu()}
-                placement="bottomCenter"
-                trigger={["click"]}
-              >
-                <Avatar
-                  style={{ cursor: "pointer" }}
-                  size="large"
-                  {...(user?.avatar?.tmdb?.avatar_path
-                    ? { src: image(user?.avatar?.tmdb?.avatar_path, "w185") }
-                    : { icon: <UserOutlined /> })}
-                />
-              </Dropdown>
-            ) : (
-              <Button onClick={handleLogin}>Login</Button>
-            )}
-          </Col>
-        </Row>
+              ) : (
+                <Button onClick={handleLogin}>Login</Button>
+              )}
+            </Col>
+          </Row>
+        )}
       </Container>
     </nav>
   );
