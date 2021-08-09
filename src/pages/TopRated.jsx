@@ -26,7 +26,7 @@ export default function Home() {
       <Spin spinning={loading}>
         <Row gutter={[24, 24]}>
           {results?.map((movie) => (
-            <Col key={movie.id} xs={24} sm={12} md={8} lg={6} xl={6}>
+            <Col key={movie.id} xs={12} sm={12} md={8} lg={6} xl={6}>
               <Link to={`/movies/${movie.id}/${slugify(movie?.title)}`}>
                 <Card
                   hoverable

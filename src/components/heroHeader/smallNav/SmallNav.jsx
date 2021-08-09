@@ -60,7 +60,7 @@ export default function SmallNav({ user, logout }) {
         <Collapse ghost>
           <NavLink to="/">
             <Panel
-              style={{ color: "#edf2f4", paddingLeft: 12 }}
+              style={{ color: "#edf2f4", paddingLeft: 12, marginBottom: 5 }}
               showArrow={false}
               header="Home"
               key="1"
@@ -142,7 +142,7 @@ export default function SmallNav({ user, logout }) {
           </Panel>
           <NavLink to="/">
             <Panel
-              style={{ color: "#edf2f4", paddingLeft: 12 }}
+              style={{ color: "#edf2f4", paddingLeft: 12, marginTop: 5 }}
               header="Celebrities"
               showArrow={false}
               key="4"
