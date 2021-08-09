@@ -9,7 +9,7 @@ import { Link, NavLink } from "react-router-dom";
 import classes from "./Nav.module.scss";
 import logo from "../../../public/logo-2.png";
 import useWindowSize from "../../hooks/useWindowSize";
-import SmallNav from "../smallNav/SmallNav";
+import SmallNav from "../heroHeader/smallNav/SmallNav";
 
 export default function Nav() {
   const { user, logout } = useContext(UserContext);
@@ -56,6 +56,28 @@ export default function Nav() {
     </Menu>
   );
 
+  const dropDownMenuTv = () => (
+    <Menu>
+      <Menu.Item>
+        <NavLink activeClassName={classes.dropActive} to="/tvtoprated">
+          Top Rated
+        </NavLink>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item>
+        <NavLink activeClassName={classes.dropActive} to="/tvpopular">
+          Popular
+        </NavLink>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item>
+        <NavLink activeClassName={classes.dropActive} to="/tvnowplaying">
+          Now Playing
+        </NavLink>
+      </Menu.Item>
+    </Menu>
+  );
+
   function handleLogin() {
     authService.createRequestToken().then((data) => {
       window.location = `https://www.themoviedb.org/authenticate/${
@@ -92,9 +114,14 @@ export default function Nav() {
                   </Dropdown>
                 </li>
                 <li>
-                  <NavLink activeClassName={classes.active} to="/tv-shows">
-                    Tv Shows
-                  </NavLink>
+                  <Dropdown overlay={dropDownMenuTv()}>
+                    <a
+                      className="ant-dropdown-link"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      Tv Shows <DownOutlined />
+                    </a>
+                  </Dropdown>
                 </li>
                 <li>
                   <NavLink activeClassName={classes.active} to="/celebrities">

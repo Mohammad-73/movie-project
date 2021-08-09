@@ -7,6 +7,9 @@ import Upcoming from "./Upcoming";
 import TopRated from "./TopRated";
 import Popular from "./Popular";
 import NowPlaying from "./NowPlaying";
+import TvPopular from "./TvPopular";
+import TvTopRated from "./TvTopRated";
+import TvNowPlaying from "./TvNowPlaying";
 import SearchResult from "./SearchResult";
 import Auth from "./Auth";
 import Celebrity from "./Celebrity";
@@ -46,6 +49,15 @@ export default function Pages() {
       </Route>
       <Route path="/nowplaying">
         <NowPlaying />
+      </Route>
+      <Route path="/tvnowplaying">
+        <TvNowPlaying />
+      </Route>
+      <Route path="/tvpopular">
+        <TvPopular />
+      </Route>
+      <Route path="/tvtoprated">
+        <TvTopRated />
       </Route>
       <Route path="/searchresults">
         <SearchResult />

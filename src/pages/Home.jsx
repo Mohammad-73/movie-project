@@ -4,7 +4,7 @@ import "swiper/components/pagination/pagination.min.css";
 import { Button, Tabs } from "antd";
 import Container from "../components/layout/Container";
 import UpcomingMovieSwiper from "../components/upcomingMovieSwiper/UpcomingMovieSwiper";
-import TopRatedMovieSwiper from "../components/topRatedtopRated/TopRatedMovieSwiper";
+import TopRatedMovieSwiper from "../components/topRatedMovieSwiper/TopRatedMovieSwiper";
 import NowPlayingMovieSwiper from "../components/nowPlayingMovieSwiper/NowPlayingMovieSwiper";
 import Seo from "../components/seo/Seo";
 import ContainerFullWidth from "../components/layout/ContainerFullWidth";
@@ -12,6 +12,9 @@ import classes from "./Home.module.scss";
 import swiperBg from "../../public/images/swiper-bg.png";
 import trilogyBg from "../../public/images/trilogy-bg.jpg";
 import franchiseBg from "../../public/images/franchise-bg.jpg";
+import NowPlayingTvSwiper from "../components/nowPlayingTvSwiper/NowPlayingTvSwiper";
+import PopularTvSwiper from "../components/popularTvSwiper/PopularTvSwiper";
+import TopRatedTvSwiper from "../components/topRatedTvSwiper/TopRatedTvSwiper";
 const { TabPane } = Tabs;
 
 export default function Home() {
@@ -28,7 +31,7 @@ export default function Home() {
               <UpcomingMovieSwiper />
             </TabPane>
             <TabPane tab="TV SHOW" key="2">
-              Content of Tab Pane 2
+              <PopularTvSwiper />
             </TabPane>
           </Tabs>
         </Container>
@@ -54,7 +57,7 @@ export default function Home() {
               <TopRatedMovieSwiper />
             </TabPane>
             <TabPane tab="TV SHOW" key="2">
-              Content of Tab Pane 2
+              <TopRatedTvSwiper />
             </TabPane>
           </Tabs>
         </Container>
@@ -80,7 +83,7 @@ export default function Home() {
               <NowPlayingMovieSwiper />
             </TabPane>
             <TabPane tab="TV SHOW" key="2">
-              Content of Tab Pane 2
+              <NowPlayingTvSwiper />
             </TabPane>
           </Tabs>
         </Container>

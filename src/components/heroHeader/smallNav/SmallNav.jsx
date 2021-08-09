@@ -9,11 +9,11 @@ import {
   Drawer,
   Collapse,
 } from "antd";
-import Container from "../layout/Container";
+import Container from "../../layout/Container";
 import { UserOutlined, MenuOutlined } from "@ant-design/icons";
-import logo from "../../../public/logo-2.png";
-import authService from "../../service/authService";
-import image from "../../helper/image";
+import logo from "../../../../public/logo-2.png";
+import authService from "../../../service/authService";
+import image from "../../../helper/image";
 import { Link, NavLink } from "react-router-dom";
 import classes from "./SmallNav.module.scss";
 const { Panel } = Collapse;
@@ -109,16 +109,6 @@ export default function SmallNav({ user, logout }) {
             </NavLink>
           </Panel>
           <Panel showArrow={false} header="Tv Shows" key="5">
-            <NavLink
-              style={{
-                color: "#edf2f4",
-                display: "block",
-                padding: "5px 0 0 30px",
-              }}
-              to=""
-            >
-              Upcoming
-            </NavLink>
             <NavLink
               style={{
                 color: "#edf2f4",
