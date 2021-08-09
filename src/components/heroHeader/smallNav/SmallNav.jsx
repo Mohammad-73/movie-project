@@ -115,7 +115,7 @@ export default function SmallNav({ user, logout }) {
                 display: "block",
                 padding: "5px 0 0 30px",
               }}
-              to="/"
+              to="/tvtoprated"
             >
               Top Rated
             </NavLink>
@@ -125,7 +125,7 @@ export default function SmallNav({ user, logout }) {
                 display: "block",
                 padding: "5px 0 0 30px",
               }}
-              to="/"
+              to="/tvpopular"
             >
               Popular
             </NavLink>
@@ -135,7 +135,7 @@ export default function SmallNav({ user, logout }) {
                 display: "block",
                 padding: "5px 0 0 30px",
               }}
-              to="/"
+              to="/tvnowplaying"
             >
               Now Playing
             </NavLink>
