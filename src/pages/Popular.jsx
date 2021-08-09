@@ -7,7 +7,7 @@ import Seo from "../components/seo/Seo";
 import Container from "../components/layout/Container";
 const { Meta } = Card;
 
-export default function Home() {
+export default function Popular() {
   const {
     data: latestMovieData = {},
     reFetch,

@@ -7,7 +7,7 @@ import { Pagination, Row, Col, Card, Spin } from "antd";
 import Seo from "../components/seo/Seo";
 const { Meta } = Card;
 
-export default function Home() {
+export default function NowPlaying() {
   const {
     data: latestMovieData = {},
     reFetch,
