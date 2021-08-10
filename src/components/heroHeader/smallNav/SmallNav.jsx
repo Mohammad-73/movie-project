@@ -140,7 +140,7 @@ export default function SmallNav({ user, logout }) {
               Now Playing
             </NavLink>
           </Panel>
-          <NavLink to="/">
+          <NavLink to="/celebrities">
             <Panel
               style={{ color: "#edf2f4", paddingLeft: 12, marginTop: 5 }}
               header="Celebrities"

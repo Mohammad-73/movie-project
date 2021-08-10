@@ -5,6 +5,7 @@ import HeroHeader from "../heroHeader/HeroHeader";
 import { useLocation } from "react-router-dom";
 import PopularMovieSwiper from "../popularMovieSwiper/PopularMovieSwiper";
 import About from "../../pages/About";
+import PopularCelebrities from "../popularCelebrities/PopularCelebrities";
 const { Content, Footer } = Layout;
 
 export default function SiteLayout() {
@@ -16,7 +17,8 @@ export default function SiteLayout() {
         return <PopularMovieSwiper />;
       case "/about":
         return <About />;
-
+      case "/celebrities":
+        return <PopularCelebrities />;
       default:
         return null;
     }
