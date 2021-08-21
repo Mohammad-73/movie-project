@@ -21,7 +21,10 @@ import movieService from "../../service/movieService";
 export default function MovieInfo({ data }) {
   const background = image(data.backdrop_path, "w780");
 
-  function handleFavMovie(accountId, mediaType, mediaId, favStatus) {}
+  function handleFavMovie(accountId, mediaType, mediaId, favStatus) {
+    movieService.favMedia(accountId, data.media_type, data.id, true);
+  }
+
   function handleRateMovie(rate) {
     movieService.rateMovie(data.id, rate);
     message.success(`Rate ${rate} is submitted.`);
