@@ -27,7 +27,7 @@ export default function TvTopRated() {
         <Row gutter={[24, 24]}>
           {results?.map((movie) => (
             <Col key={movie.id} xs={12} sm={12} md={8} lg={6} xl={6}>
-              <Link to={`/movies/${movie.id}/${slugify(movie?.title)}`}>
+              <Link to={`/tv-shows/${movie.id}/${slugify(movie?.title)}`}>
                 <Card
                   hoverable
                   style={{ overflow: "hidden", height: 560 }}
