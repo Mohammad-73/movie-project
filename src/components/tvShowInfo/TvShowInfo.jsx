@@ -19,7 +19,6 @@ import { StarOutlined } from "@ant-design/icons";
 import movieService from "../../service/movieService";
 
 export default function TvShowInfo({ data }) {
-  console.log("tv", data);
   const background = image(data.backdrop_path, "w780");
 
   function handleRateMovie(rate) {
