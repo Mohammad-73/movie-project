@@ -23,7 +23,7 @@ export default function TvShowInfo({ data }) {
   const background = image(data.backdrop_path, "w780");
 
   function handleRateMovie(rate) {
-    movieService.rate(data.id, rate);
+    movieService.rateTv(data.id, rate);
     message.success(`Rate ${rate} is submitted.`);
   }
 
