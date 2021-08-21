@@ -15,7 +15,7 @@ import image from "../../helper/image";
 import Container from "../layout/Container";
 import ContainerFullWidth from "../layout/ContainerFullWidth";
 import classes from "./MovieInfo.module.scss";
-import { StarOutlined } from "@ant-design/icons";
+import { StarOutlined, HeartOutlined } from "@ant-design/icons";
 import movieService from "../../service/movieService";
 
 export default function MovieInfo({ data }) {
@@ -73,7 +73,7 @@ export default function MovieInfo({ data }) {
                   </span>
                 ))}
               </div>
-              <div className={classes.rate_movie}>
+              <div className={classes.rate_fav}>
                 <Dropdown overlay={menu} trigger={["click"]}>
                   <a
                     className="ant-dropdown-link"
@@ -82,6 +82,7 @@ export default function MovieInfo({ data }) {
                     <StarOutlined />
                   </a>
                 </Dropdown>
+                <HeartOutlined />
               </div>
               <div className={classes.tab}>
                 <Tabs defaultActiveKey="1">

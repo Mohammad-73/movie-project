@@ -19,11 +19,15 @@
         color: red !important;
       }
     }
+    .anticon-heart,
     .anticon-star {
       color: $alice-blue;
       background-color: $amaranth-red;
       padding: 15px;
       border-radius: 50%;
+      font-size: 20px;
+      margin-right: 15px;
+      cursor: pointer;
     }
   }
   .title {
@@ -61,7 +65,7 @@
     padding-right: 3px;
     border-right: 1px solid $amaranth-red;
   }
-  .rate_movie {
+  .rate_fav {
     clear: both;
     margin-top: 60px;
   }
