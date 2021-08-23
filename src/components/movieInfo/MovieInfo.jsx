@@ -10,19 +10,22 @@ import {
   message,
 } from "antd";
 const { TabPane } = Tabs;
-import React from "react";
+import React, { useContext } from "react";
 import image from "../../helper/image";
 import Container from "../layout/Container";
 import ContainerFullWidth from "../layout/ContainerFullWidth";
 import classes from "./MovieInfo.module.scss";
 import { StarOutlined, HeartOutlined } from "@ant-design/icons";
 import movieService from "../../service/movieService";
+import { UserContext } from "../../context/UserContext";
 
 export default function MovieInfo({ data }) {
   const background = image(data.backdrop_path, "w780");
+  const { user } = useContext(UserContext);
 
-  function handleFavMovie(accountId, mediaType, mediaId, favStatus) {
-    movieService.favMedia(accountId, data.media_type, data.id, true);
+  function handleFavMovie() {
+    movieService.favMedia(user.id, "movie", data.id, true);
+    message.success(`success`);
   }
 
   function handleRateMovie(rate) {
@@ -86,7 +89,7 @@ export default function MovieInfo({ data }) {
                     <StarOutlined />
                   </a>
                 </Dropdown>
-                <HeartOutlined />
+                <HeartOutlined onClick={handleFavMovie} />
               </div>
               <div className={classes.tab}>
                 <Tabs defaultActiveKey="1">
